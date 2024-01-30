@@ -1,5 +1,5 @@
 const cursor = document.querySelector('.cursor') // to fix the hammer image to the cursor: defined a variable cursor and assigned it to the class .cursor in the html file 
-const holes = [document.querySelectorAll('.hole')] // so that i dont need to put img src to every hole div in html, i make an array of all the holes
+const holes = [...document.querySelectorAll('.hole')] // so that i dont need to put img src to every hole div in html, i make an array of all the holes
 
 function run() {
     const i = Math.floor(Math.random() * holes.length) // to get a random number between 0 and 8 (holes.length)
