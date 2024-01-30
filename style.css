@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0; 
+}
+html, body{
+    height: 100%;
+}
+body{
+    background: #5d87b8;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+   display: flex; /* score and hello is side by side now */
+   flex-direction: column; /* score and hello is again on top of each other */
+   justify-content: center; /* score and hello is now in the center vertically */
+   align-items: center; /* score and hello is now in the center horizontally*/
+}
+.score{
+    font-size: 4em;
+    margin-bottom: .5em;
+}
+.board{
+    width: 600px;
+    height: 600px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 80px /* gap between the rows and columns so that we can see the holes  */
+
+}
+.hole{
+    background: #ffffff;
+    border-radius: 50%; /* to make the squares into circles */
+    box-shadow: inset 0 10px 0 7px #726565, /* adding gray shadows, to make the holes look like holes */
+                inset 0 20px 20px 15px rgba(0,0,0,.3),
+                0 0 5px rgba(0,0,0,.5); 
+    position: relative; /* ???? this is for the cartman to appear in the whole but im not sure exactly how it works */               
+}
+
+.hole .cartman{
+    width: 80%;  /* so we had a giant cartman and here we say 80% of that div (hole) , aka it makes cartman smaller 80% relatively to the hole */              
+    position: absolute; /* ??? */
+    left: 50%; 
+}
+
+.cursor{
+    height: 110px;
+    width: 100px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    background-image: url('assets/hammer_paint.png'); 
+    background-size: 100% 100%;
+    transform: translate(-20%, -20%); /* to make the cursor a bit below the hammer */
+    transition: transform .1s; /* we are getting ready to make the hammer rotate */
+}
+.cursor.active{ /*so when our cursor has the class active, it will rotate */
+    transform: translate(-20%, -20%) rotate(-45deg); /* to make the hammer rotate to the right side of the screen */
+}
+
