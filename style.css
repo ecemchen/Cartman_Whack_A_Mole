@@ -37,9 +37,9 @@ body{
 }
 
 .hole .cartman{
-    width: 80%;  /* so we had a giant cartman and here we say 80% of that div (hole) , aka it makes cartman smaller 80% relatively to the hole */              
+    width: 100%;  /* so we had a giant cartman and here we say 80% of that div (hole) , aka it makes cartman smaller 80% relatively to the hole */              
     position: absolute; /* ??? */
-    left: 50%; 
+    left: 2%; 
 }
 
 .cursor{
