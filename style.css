@@ -34,12 +34,26 @@ body{
                 inset 0 20px 20px 15px rgba(0,0,0,.3),
                 0 0 5px rgba(0,0,0,.5); 
     position: relative; /* ???? this is for the cartman to appear in the whole but im not sure exactly how it works */               
+    overflow: hidden; 
 }
 
 .hole .cartman{
     width: 100%;  /* so we had a giant cartman and here we say 80% of that div (hole) , aka it makes cartman smaller 80% relatively to the hole */              
     position: absolute; /* ??? */
-    left: 2%; 
+    left: 53%; 
+    transform: translateX(-50%); /* ??*/
+    bottom: 0;
+    animation: rise .3s ease-out; 
+}
+
+@keyframes raise{
+    0%{
+        transform: translateX(-50%) translateY(100%);
+    }
+    100%{
+        transform: translateX(-50%) translateY(0);
+    }
+    
 }
 
 .cursor{
