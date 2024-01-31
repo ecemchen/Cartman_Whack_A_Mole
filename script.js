@@ -1,15 +1,40 @@
 const cursor = document.querySelector('.cursor') // to fix the hammer image to the cursor: defined a variable cursor and assigned it to the class .cursor in the html file 
 const holes = [...document.querySelectorAll('.hole')] // so that i dont need to put img src to every hole div in html, i make an array of all the holes
+const scoreEl = document.querySelector('.score span') // to show the score in the html file, i defined a variable scoreEl and assigned it to the class .score in the html file
+let score = 0
+
+const sound = new Audio('assets/smash.mp3') // to add the sound when the cartman appears, i defined a variable sound and assigned it to the audio file
+
 
 function run() {
     const i = Math.floor(Math.random() * holes.length) // to get a random number between 0 and 8 (holes.length)
     const hole = holes[i]
+    let timer = null
 
     const img = document.createElement('img')
     img.classList.add('cartman')
     img.src = 'assets/cartman.png'
 
+    img.addEventListener('click', () => { // this is the hardest and compl eventlistener here
+        score++ // how many the score will increase in each click
+        sound.play() // the sound will player clicks on cartman
+        scoreEl.textContent = score
+        img.src = 'assets/cartman_whacked.png'
+        clearTimeout(timer) 
+        setTimeout (() => {
+            hole.removeChild(img)
+            run()
+    
+    },500)
+    })
+
     hole.appendChild(img)
+
+    timer = setTimeout (() => {
+        hole.removeChild(img)
+        run()
+
+},1000) // 1500 is the time in milliseconds that the cartman will stay on the screen and if the player cant hit then cant get point
 }
 run()
 

@@ -13,7 +13,10 @@ body{
    flex-direction: column; /* score and hello is again on top of each other */
    justify-content: center; /* score and hello is now in the center vertically */
    align-items: center; /* score and hello is now in the center horizontally*/
+   overflow: hidden; /* when we go to the very left of the screen scroll kinda movement the screen was making so we fix this here */
+/* cursor:none TO HIDE THE CURSOR MAYBE I DO THIS AT THE END*/
 }
+
 .score{
     font-size: 4em;
     margin-bottom: .5em;
@@ -66,6 +69,7 @@ body{
     background-size: 100% 100%;
     transform: translate(-20%, -20%); /* to make the cursor a bit below the hammer */
     transition: transform .1s; /* we are getting ready to make the hammer rotate */
+    pointer-events: none; /* we add this because we want to click on cartman, without this we click on the hammer */
 }
 .cursor.active{ /*so when our cursor has the class active, it will rotate */
     transform: translate(-20%, -20%) rotate(-45deg); /* to make the hammer rotate to the right side of the screen */
